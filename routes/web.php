@@ -14,9 +14,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout.base');
+    return view('dashboard.index');
 });
 
+Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
+//Route::get('/product.all', 'ProductController@all')->name('product.all');
+Route::resource('/kategori', 'KategoriController');
+Route::resource('/produk', 'ProdukController');
+Route::resource('/toko', 'TokoController');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
 Route::get('/admin', function () {
-    return view('dashboard.index');
+    return view('user.admin.index');
+});
+
+Route::get('/penjual', function () {
+    return view('user.penjual.index');
+});
+
+Route::get('/pembeli', function () {
+    return view('user.pembeli.index');
+});
+
+Route::get('/byviewers', function () {
+    return view('report.byviewers.index');
+});
+
+Route::get('/byorders', function () {
+    return view('report.byorders.index');
 });

@@ -54,7 +54,7 @@ Dashboard
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-start">
-                                    <h4 class="card-title mb-0">Earning Statistics</h4>
+                                    <h4 class="card-title mb-0">Statistik</h4>
                                     <div class="ml-auto">
                                         <div class="dropdown sub-dropdown">
                                             <button class="btn btn-link text-muted dropdown-toggle" type="button"
@@ -74,7 +74,7 @@ Dashboard
                                     <div class="stats ct-charts position-relative" style="height: 315px;"></div>
                                 </div>
                                 <ul class="list-inline text-center mt-4 mb-0">
-                                    <li class="list-inline-item text-muted font-italic">Earnings for this month</li>
+                                    <li class="list-inline-item text-muted font-italic">Statistik</li>
                                 </ul>
                             </div>
                         </div>

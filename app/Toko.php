@@ -25,7 +25,6 @@ class Toko extends Model
         'shopee',
         'foto_toko',
         'id_penjual',
-
     ];
 
     use SoftDeletes;

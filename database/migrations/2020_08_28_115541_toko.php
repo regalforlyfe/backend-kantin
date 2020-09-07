@@ -33,6 +33,11 @@ class Toko extends Migration
             $table->softDeletes();
             $table->timestamps();
 
+            $table->unsignedTinyint('rating')->nullable();
+            $table->enum('status', ['tidak aktif', 'aktif']);
+            $table->enum('verifikasi', ['belum terverifikasi', 'terverifikasi']);
+
+
             $table->foreign('id_penjual')->references('id')->on('users')->onDelete('cascade');
         });
     }

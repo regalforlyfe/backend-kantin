@@ -52,3 +52,7 @@ Route::get('/byviewers', function () {
 Route::get('/byorders', function () {
     return view('report.byorders.index');
 });
+
+Route::get('/order', function () {
+    return view('order.index');
+});

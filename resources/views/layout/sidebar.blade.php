@@ -5,12 +5,15 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">    
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/"
-                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
+                                aria-expanded="false"><i class="fas fa-home"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/order"
+                                aria-expanded="false"><i class="fas fa-shopping-cart"></i><span
+                                    class="hide-menu">Order</span></a></li>
 
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                aria-expanded="false"><i class="fas fa-file-alt"></i><span
                                     class="hide-menu">Report </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item"><a href="/byviewers" class="sidebar-link"><span
@@ -25,7 +28,7 @@
                         </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                aria-expanded="false"><i class="fas fa-user"></i><span
                                     class="hide-menu">Users </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item"><a href="/admin" class="sidebar-link"><span
@@ -44,7 +47,7 @@
                         </li>
 
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                aria-expanded="false"><i class="fas fa-archive"></i><span
                                     class="hide-menu">Master Data </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <li class="sidebar-item"><a href="{{route('toko.index')}}" class="sidebar-link"><span

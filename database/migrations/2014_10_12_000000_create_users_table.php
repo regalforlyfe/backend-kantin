@@ -19,11 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('tipe_users', ['admin', 'penjual','pembeli']);
+            $table->enum('tipe_user', ['admin', 'penjual','pembeli']);
             $table->string('password');
+            $table->mediumtext('profil')->nullable();
+            $table->mediumtext('foto_ktp')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

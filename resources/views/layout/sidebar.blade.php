@@ -26,7 +26,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        @if(Auth::user()->tipe_user=='admin')
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i class="fas fa-user"></i><span
                                     class="hide-menu">Users </span></a>
@@ -45,7 +45,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        @endif
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i class="fas fa-archive"></i><span
                                     class="hide-menu">Master Data </span></a>
@@ -54,10 +54,12 @@
                                             class="hide-menu"> Toko
                                         </span></a>
                                 </li>
+                                @if(Auth::user()->tipe_user=='admin')
                                 <li class="sidebar-item"><a href="{{route('kategori.index')}}" class="sidebar-link"><span
                                             class="hide-menu"> Kategori
                                         </span></a>
                                 </li>
+                                @endif
                                 <li class="sidebar-item"><a href="{{route('produk.index')}}" class="sidebar-link"><span
                                             class="hide-menu"> Produk
                                         </span></a>

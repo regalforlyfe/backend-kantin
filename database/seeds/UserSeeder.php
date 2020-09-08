@@ -19,8 +19,10 @@ class UserSeeder extends Seeder
             'username'=>'admin',
             'email' => 'admin@admin.com',
             'email_verified_at'=>'2020-08-01 01:00:00',
-            'tipe_users' => 'admin',
+            'tipe_user' => 'admin',
             'password' => bcrypt('adminpass'),
+            'profil'=>'null',
+            'foto_ktp'=>'null',
             'tanggal_lahir'=>'2020-08-01',
         ],
         [
@@ -28,8 +30,10 @@ class UserSeeder extends Seeder
             'username'=>'ibukartini',
             'email' => 'kartini@admin.com',
             'email_verified_at'=>'2020-08-01 01:00:00',
-            'tipe_users' => 'penjual',
+            'tipe_user' => 'penjual',
             'password' => bcrypt('kartinipass'),
+            'profil'=>'null',
+            'foto_ktp'=>'null',
             'tanggal_lahir'=>'2020-08-01',
         ]
         ];

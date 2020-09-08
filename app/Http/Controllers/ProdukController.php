@@ -22,7 +22,7 @@ class ProdukController extends Controller
     
     public function all()
     {
-        $data = Produk::addSelect(['nama_toko' => Toko::select('nama_toko')->whereColumn('id', 'produk.id_toko')])->where('id_toko', Auth::id())->get();
+        $data = Produk::addSelect(['nama_toko' => Toko::select('nama_toko')->whereColumn('id', 'produk.id_toko')])->get();
         return $data;
     }
 

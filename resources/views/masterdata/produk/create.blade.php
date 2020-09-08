@@ -11,18 +11,20 @@ Tambah Produk
                 <form @submit.prevent="storeData()" @keydown="form.onKeydown($event)">
                     <div class="modal-body mx-4">
                         <div class="form-row">
-                            <label class="col-lg-2" for="nama_kategori">Toko Penjual</label>
+                            <label class="col-lg-2" for="id_penjual">Toko Penjual</label>
                             <div class="form-group col-md-8">
-                                <input v-model="form.toko_penjual" id="toko_penjual" type="text"
-                                    placeholder="nama toko" class="form-control"
-                                    :class="{ 'is-invalid': form.errors.has('toko penjual') }">
-                                <has-error :form="form" field="toko penjual"></has-error>
+                                <select v-model="form.id_penjual" onchange="selectTrigger()" style="width: 100%"
+                                    id="id_penjual" class="form-control custom-select">
+
+                                    <option v-for="item in toko" :value="item.id">@{{ item.nama_toko }}</option>
+                                </select>
+                                <has-error :form="form" field="id_penjual"></has-error>
                             </div>
                         </div>
                         <div class="form-row">
                             <label class="col-lg-2" for="nama_kategori">Kategori</label>
                             <select class="custom-select form-group col-md-8" id="inlineFormCustomSelect">
-                                <option selected>Pilih Kategori</option>
+                                <!-- <option selected>Pilih Kategori</option> -->
                                 <option value="1">Makanan</option>
                                 <option value="2">Minuman</option>
                                 <option value="3">Pakaian</option>
@@ -107,7 +109,7 @@ Tambah Produk
                         <br>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{route('kategori.index')}}"><button type="button" class="btn btn-light" data-dismiss="modal">Batal</button></a>
+                        <a href="{{route('produk.index')}}"><button type="button" class="btn btn-light" data-dismiss="modal">Batal</button></a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>

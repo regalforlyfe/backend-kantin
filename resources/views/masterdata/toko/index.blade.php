@@ -7,7 +7,7 @@ Toko
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary btn-rounded mb-3"><i class="fas fa-plus-circle"></i> Tambah Toko</button>
+                            <a href="{{route('toko.create')}}"><button type="button" class="btn btn-primary btn-rounded mb-3"><i class="fas fa-plus-circle"></i> Tambah Toko </button></a>
                                 <div class="table-responsive">
                                     <table id="default_order" class="table table-striped table-bordered display no-wrap" style="width:100%">
                                         <thead>

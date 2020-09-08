@@ -21,7 +21,7 @@ class TokoController extends Controller
     
     public function all()
     {
-        //return Kategori::addSelect(['users' => User::select('nama')->whereColumn('id', 'lapangan.id_users')])->get();
+        return Toko::addSelect(['seller' => User::select('nama')->whereColumn('id', 'toko.id_penjual')])->get();
     }
 
     /**

@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     {
 
         $data = [
-            [
+        [
             'nama' => 'admin',
             'username'=>'admin',
             'email' => 'admin@admin.com',
@@ -30,6 +30,15 @@ class UserSeeder extends Seeder
             'email_verified_at'=>'2020-08-01 01:00:00',
             'tipe_users' => 'penjual',
             'password' => bcrypt('kartinipass'),
+            'tanggal_lahir'=>'2020-08-01',
+        ],
+        [
+            'nama' => 'pertiwi',
+            'username'=>'ibupertiwi',
+            'email' => 'pertiwi@admin.com',
+            'email_verified_at'=>'2020-08-01 01:00:00',
+            'tipe_users' => 'penjual',
+            'password' => bcrypt('pertiwipass'),
             'tanggal_lahir'=>'2020-08-01',
         ]
         ];

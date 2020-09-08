@@ -34,7 +34,7 @@ class Toko extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->unsignedInteger('rating')->nullable();
+            $table->float('rating')->nullable();
             $table->enum('status', ['tidak aktif', 'aktif']);
             $table->enum('verifikasi', ['belum terverifikasi', 'terverifikasi']);
 

@@ -17,6 +17,7 @@ class Toko extends Model
         'waktu_buka',
         'waktu_tutup',
         'metode_pembayaran',
+        'metode_pengiriman',
         'whatsapp',
         'maps',
         'instagram',
@@ -25,6 +26,9 @@ class Toko extends Model
         'shopee',
         'foto_toko',
         'id_penjual',
+        'rating',
+        'status',
+        'verifikasi',
     ];
 
     use SoftDeletes;

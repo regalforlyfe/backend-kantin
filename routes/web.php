@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
+Route::get('/toko.all', 'TokoController@all')->name('toko.all');
 //Route::get('/product.all', 'ProductController@all')->name('product.all');
 Route::resource('/kategori', 'KategoriController');
 Route::resource('/produk', 'ProdukController');
@@ -28,9 +29,6 @@ Route::resource('/toko', 'TokoController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 
 
 Route::get('/admin', function () {

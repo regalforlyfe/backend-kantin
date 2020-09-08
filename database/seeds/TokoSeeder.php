@@ -21,6 +21,7 @@ class TokoSeeder extends Seeder
             'waktu_buka' => '10:00:00',
             'waktu_tutup' => '22:00:00',
             'metode_pembayaran' => 'cash',
+            'metode_pengiriman' => 'antar',
             'whatsapp' => '085156487716',
             'maps' => 'https://g.page/gado-gado-bude-rus?share',
             'instagram' => 'kartiniaja',
@@ -29,6 +30,9 @@ class TokoSeeder extends Seeder
             'shopee' => 'kartinidong',
             'foto_toko' => 'null',
             'id_penjual' => '2',
+            'rating' => '4.2',
+            'status' => 'tidak aktif',
+            'verifikasi' => 'belum terverifikasi'
 
         ];
           Toko::insert($data);

@@ -3,7 +3,33 @@
             <div class="scroll-sidebar" data-sidebarbg="skin6">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">    
+                    <ul id="sidebarnav"> 
+                        <li class="list-divider"></li>
+                        <li class="sidebar-item">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="../assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
+                                                width="40">
+                                    </div>
+                                    <div class="col-10">
+                                        <span class="ml-2 d-none d-lg-inline-block">
+                                        <div class="row">
+                                            <div class="col-10">
+                                            <span class="text-dark">{{ Auth::user()->nama }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                            <p><i class="fas fa-id-card" style="padding-right:5px;"></i>{{ Auth::user()->tipe_user }}</p>
+                                            </div>
+                                        </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-divider"></li>   
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/"
                                 aria-expanded="false"><i class="fas fa-home"></i><span
                                     class="hide-menu">Dashboard</span></a></li>

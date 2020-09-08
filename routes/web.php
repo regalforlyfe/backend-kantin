@@ -17,16 +17,16 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
-//Route::get('/product.all', 'ProductController@all')->name('product.all');
-Route::resource('/kategori', 'KategoriController');
-Route::resource('/produk', 'ProdukController');
-Route::resource('/toko', 'TokoController');
+
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual']],function(){ 
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/produk', 'ProdukController');
+    Route::resource('/toko', 'TokoController');
+    Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
+    Route::resource('/kategori', 'KategoriController');
 });
 
 

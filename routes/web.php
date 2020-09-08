@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard.index');
+    return redirect()->route('home');
 });
 
 Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
@@ -24,12 +24,11 @@ Route::resource('/kategori', 'KategoriController');
 Route::resource('/produk', 'ProdukController');
 Route::resource('/toko', 'TokoController');
 
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual']],function(){ 
+    Route::get('/home', 'HomeController@index')->name('home');
+});
 
 Route::get('/admin', function () {
     return view('user.admin.index');

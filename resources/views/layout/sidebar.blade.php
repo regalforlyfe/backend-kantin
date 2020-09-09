@@ -57,15 +57,15 @@
                                 aria-expanded="false"><i class="fas fa-user"></i><span
                                     class="hide-menu">Users </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="/admin" class="sidebar-link"><span
+                                <li class="sidebar-item"><a href="{{route('user.viewAdmin')}}" class="sidebar-link"><span
                                             class="hide-menu"> Admin
                                         </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="/penjual" class="sidebar-link"><span
+                                <li class="sidebar-item"><a href="{{route('user.viewPenjual')}}" class="sidebar-link"><span
                                             class="hide-menu"> Penjual
                                         </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="/pembeli" class="sidebar-link"><span
+                                <li class="sidebar-item"><a href="{{route('user.viewPembeli')}}" class="sidebar-link"><span
                                             class="hide-menu"> Pembeli
                                         </span></a>
                                 </li>

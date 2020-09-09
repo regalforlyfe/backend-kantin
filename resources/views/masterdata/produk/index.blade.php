@@ -106,7 +106,7 @@ Produk
                             .then(response => {
                                 Swal.fire(
                                     'Deleted!',
-                                    'Your file has been deleted.',
+                                    'Produk telah dihapus.',
                                     'success'
                                 )
                                 this.refreshData()

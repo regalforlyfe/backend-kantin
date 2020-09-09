@@ -19,6 +19,7 @@ class ProdukSeeder extends Seeder
             'id_kategori' => 1,
             'id_toko' => '1',
             'foto_produk' => 'null',
+            'id_penjual' => '2',
 
         ];
           Produk::insert($data);

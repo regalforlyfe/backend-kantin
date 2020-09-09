@@ -11,30 +11,31 @@ Tambah Produk
                 <form @submit.prevent="storeData()" @keydown="form.onKeydown($event)">
                     <div class="modal-body mx-4">
                         <div class="form-row">
-                            <label class="col-lg-2" for="id_penjual">Toko Penjual</label>
+                            <label class="col-lg-2" for="id_toko">Toko Penjual</label>
                             <div class="form-group col-md-8">
-                                <select v-model="form.id_penjual" onchange="selectTrigger()" style="width: 100%"
-                                    id="id_penjual" class="form-control custom-select">
-
-                                    <option v-for="item in toko" :value="item.id">@{{ item.nama_toko }}</option>
+                                <select v-model="form.id_toko" onchange="selectTrigger()" style="width: 100%"
+                                    id="id_toko" class="form-control custom-select">
+                                    <option v-for="item in id_toko" :value="item.id">@{{ item.nama_toko }}</option>
                                 </select>
-                                <has-error :form="form" field="id_penjual"></has-error>
+                                <has-error :form="form" field="id_toko"></has-error>
                             </div>
                         </div>
                         <div class="form-row">
-                            <label class="col-lg-2" for="nama_kategori">Kategori</label>
-                            <select class="custom-select form-group col-md-8" id="inlineFormCustomSelect">
-                                <!-- <option selected>Pilih Kategori</option> -->
-                                <option value="1">Makanan</option>
-                                <option value="2">Minuman</option>
-                                <option value="3">Pakaian</option>
-                            </select>            
+                            <label class="col-lg-2" for="id_kategori">Kategori</label>
+                            <div class="form-group col-md-8">
+                                <select v-model="form.id_kategori" id="id_kategori" onchange="selectTrigger()"
+                                    style="width: 100%" class="form-control custom-select">
+                                    <option v-for="item in id_kategori" :value="item.id">
+                                        @{{  item.nama_kategori }}</option>
+                                </select>
+                                <has-error :form="form" field="id_kategori"></has-error>
+                            </div>          
                         </div>
                         <div class="form-row">
-                            <label class="col-lg-2" for="nama_kategori">Nama Produk</label>
+                            <label class="col-lg-2" for="nama_produk">Nama Produk</label>
                             <div class="form-group col-md-8">
                                 <input v-model="form.nama_produk" id="nama_produk" type="text"
-                                    placeholder="nama produk" class="form-control"
+                                    placeholder="Masukkan nama produk" class="form-control"
                                     :class="{ 'is-invalid': form.errors.has('nama_produk') }">
                                 <has-error :form="form" field="nama_produk"></has-error>
                             </div>
@@ -42,15 +43,15 @@ Tambah Produk
                         <div class="form-row">
                             <label class="col-lg-2" for="deskripsi">Deskripsi</label>
                             <div class="form-group col-md-8">
-                            <input v-model="form.deskripsi" id="deskripsi" type="text" placeholder="deskripsi produk"
+                            <input v-model="form.deskripsi" id="deskripsi" type="text" placeholder="Masukkan deskripsi produk"
                                 class="form-control" :class="{ 'is-invalid': form.errors.has('deskripsi') }">
                             <has-error :form="form" field="deskripsi"></has-error>
                             </div>
                         </div>
                         <div class="form-row">
-                            <label class="col-lg-2" for="deskripsi">Harga</label>
+                            <label class="col-lg-2" for="harga">Harga</label>
                             <div class="form-group col-md-8">
-                            <input v-model="form.harga" id="harga" type="number" placeholder="harga"
+                            <input v-model="form.harga" id="harga" type="number" placeholder="Masukkan harga"
                                 class="form-control" :class="{ 'is-invalid': form.errors.has('harga') }">
                             <has-error :form="form" field="harga"></has-error>
                             </div>
@@ -130,9 +131,15 @@ Tambah Produk
             mainData: [],
             form: new Form({
                 id: '',
-                nama_kategori: '',
+                nama_produk: '',
                 deskripsi: '',
+                harga: '',
+                foto_produk: '',
+                id_toko: '',
+                id_kategori: '',
             }),
+            id_toko: @json($toko),
+            id_kategori: @json($kategori),
         },
         mounted() {
             $('#default_table').DataTable()
@@ -140,17 +147,17 @@ Tambah Produk
         },
         methods: {
             storeData() {
-                this.form.post("{{ route('kategori.store') }}")
+                this.form.post("{{ route('produk.store') }}")
 
                     .then(response => {
                         $('#defaultModal').modal('hide');
                         Swal.fire(
                             'Berhasil!',
-                            'Kategori berhasil ditambahkan',
+                            'Produk berhasil ditambahkan',
                             'berhasil'
                         ).then((value)=> {
                             this.refreshData()
-                            window.location = "{{route('kategori.index')}}"
+                            window.location = "{{route('produk.index')}}"
                         })
                         
                     })
@@ -172,7 +179,7 @@ Tambah Produk
                         
             },
             refreshData() {
-                axios.get("{{ route('kategori.all') }}")
+                axios.get("{{ route('produk.all') }}")
                     .then(response => {
                         $('#default_table').DataTable().destroy()
                         this.mainData = response.data

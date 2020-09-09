@@ -33,9 +33,9 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        $data = Kategori::all();
+        $kategori = Kategori::all();
         $toko = Toko::all();
-        return view('masterdata.produk.create', compact('data','toko'));
+        return view('masterdata.produk.create', compact('kategori','toko'));
     }
 
     /**
@@ -49,12 +49,12 @@ class ProdukController extends Controller
         //echo '<script>console.log('.$request->gambar.')</script>';
 
         $request->validate([
-            'nama_kategori' => 'required',
+            'nama_produk' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
             'id_kategori' => 'required',
             'id_toko' => 'required',
-            'foto_produk' => 'required',
+            // 'foto_produk' => 'required',
         ]);
         
         Produk::create($request->all());

@@ -17,30 +17,27 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
-Route::get('/toko.all', 'TokoController@all')->name('toko.all');
-//Route::get('/product.all', 'ProductController@all')->name('product.all');
-Route::resource('/kategori', 'KategoriController');
-Route::resource('/produk', 'ProdukController');
-Route::resource('/toko', 'TokoController');
-
 Auth::routes();
-
 Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual']],function(){ 
+
+    Route::group(['prefix'=>'user'], function(){
+        Route::get('/viewAdmin', 'UserController@index')->name('user.viewAdmin');
+        Route::get('/user.admin', 'UserController@admin')->name('user.admin');
+		Route::get('/viewPenjual', 'UserController@viewPenjual')->name('user.viewPenjual');
+		Route::get('/user.penjual', 'UserController@penjual')->name('user.penjual');
+		Route::get('/viewPembeli', 'UserController@viewPembeli')->name('user.viewPembeli');
+		Route::get('/user.pembeli', 'UserController@pembeli')->name('user.pembeli');
+		Route::resource('user', 'UserController');
+    });
+    
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/produk', 'ProdukController');
+    Route::get('/toko.all', 'TokoController@all')->name('toko.all');
+    Route::resource('/toko', 'TokoController');
+    Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
+    Route::resource('/kategori', 'KategoriController');
 });
 
-Route::get('/admin', function () {
-    return view('user.admin.index');
-});
-
-Route::get('/penjual', function () {
-    return view('user.penjual.index');
-});
-
-Route::get('/pembeli', function () {
-    return view('user.pembeli.index');
-});
 
 Route::get('/byviewers', function () {
     return view('report.byviewers.index');

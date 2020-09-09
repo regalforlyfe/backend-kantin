@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Toko;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TokoController extends Controller
@@ -21,8 +22,11 @@ class TokoController extends Controller
     
     public function all()
     {
-        //return Kategori::addSelect(['users' => User::select('nama')->whereColumn('id', 'lapangan.id_users')])->get();
+        $data = Toko::addSelect(['seller' => User::select('nama')->whereColumn('id', 'toko.id_penjual')])->where('id_penjual', Auth::id())->get();
+        return $data;
     }
+
+    
 
     /**
      * Show the form for creating a new resource.

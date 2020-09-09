@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -13,10 +14,34 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users= User::all();
-        return view('users.index', compact('users'));
+        $user= User::all();
+        return view('user.admin.index', compact('user'));
     }
 
+    public function admin()
+    {
+        return User::all()->WHERE('tipe_user', '=', 'admin');
+    }
+
+    public function viewPenjual()
+    {
+        $user= User::all();
+        return view('user.penjual.index', compact('user'));
+    }
+    public function penjual()
+    {
+        return User::all()->WHERE('tipe_user', '=', 'penjual');
+    }
+
+    public function viewPembeli()
+    {
+        $user= User::all();
+        return view('user.pembeli.index', compact('user'));
+    }
+    public function pembeli()
+    {
+        return User::all()->WHERE('tipe_user', '=', 'pembeli');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +60,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required|min:5|unique:users,username,',
+            'tipe_user' => 'required',
+            'profil' => 'required',
+            'email' => 'required|email|unique:users,email,',
+            'password' => 'required|nullable|min:5',
+        ]);
+        
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        return User::create($input);
     }
 
     /**
@@ -69,7 +105,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required|min:5|unique:users,username,',
+            'tipe_user' => 'required',
+            'profil' => 'required',
+            'email' => 'required|email|unique:users,email,',
+            'password' => 'required|nullable|min:5',
+        ]);
+        
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        return $user->update($input);
     }
 
     /**
@@ -80,6 +127,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $user->delete();
     }
 }

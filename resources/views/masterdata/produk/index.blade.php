@@ -37,9 +37,13 @@ Produk
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-warning btn-sm far fa-edit"></button>
+                                                        <a v-bind:href="getUrl(item.id)" @click="editModal(item.id)"
+                                                        class="text-success" data-toggle="tooltip" data-placement="top"
+                                                        data-original-title="Edit"><i class="btn btn-warning btn-sm far fa-edit"></i></a>
                                                         <button class="btn btn-info btn-sm fas fa-image"></button>
-                                                        <button class="btn btn-danger btn-sm  far fa-trash-alt"></button>
+                                                        <a href="javascript:void(0);" @click="deleteData(item.id)" class="text-danger"
+                                                        data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i
+                                                            class="btn btn-danger btn-sm far fa-trash-alt"></i></a>
                                                         </form>
                                                     </div>
                                                 </td>
@@ -89,14 +93,14 @@ Produk
             deleteData(id) {
 
                 swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to restore this!",
+                    title: 'Apakah kamu yakin?',
+                    text: "Produk tidak dapat kembali",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'No, cancel!',
+                    confirmButtonText: 'Ya',
+                    cancelButtonText: 'Tidak',
                     reverseButtons: true
                 }).then((result) => {
 
@@ -105,9 +109,9 @@ Produk
                         this.form.delete(url)
                             .then(response => {
                                 Swal.fire(
-                                    'Deleted!',
+                                    'Terhapus!',
                                     'Produk telah dihapus.',
-                                    'success'
+                                    'sukses'
                                 )
                                 this.refreshData()
                             })
@@ -118,8 +122,8 @@ Produk
                         result.dismiss === Swal.DismissReason.cancel
                     ) {
                         swal.fire(
-                            'Canceled',
-                            'Your data not deleted',
+                            'Batal',
+                            'Produk tidak terhapus',
                             'error'
                         )
                     }

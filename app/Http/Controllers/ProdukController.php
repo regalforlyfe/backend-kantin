@@ -80,10 +80,10 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        $data = Kategori::all();
+        $kategori = Kategori::all();
         $toko = Toko::all();
         $produk = Produk::find($id);
-        return view('masterdata.produk.edit', compact('data','toko','produk'));
+        return view('masterdata.produk.edit', compact('kategori','toko','produk'));
     }
 
     /**
@@ -96,7 +96,7 @@ class ProdukController extends Controller
     public function update(Request $request, Produk $produk)
     {
         $request->validate([
-            'nama_kategori' => 'required',
+            'nama_produk' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
             'id_kategori' => 'required',

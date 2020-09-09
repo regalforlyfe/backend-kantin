@@ -217,10 +217,28 @@ Tambah Toko
         el: '#app',
         data: {
             mainData: [],
+            id_user: @json($data),
             form: new Form({
                 id: '',
-                nama_kategori: '',
+                nama_toko: '',
                 deskripsi: '',
+                alamat: '',
+                hari_buka: '',
+                waktu_buka: '',
+                waktu_tutup: '',
+                metode_pembayaran: '',
+                metode_pengiriman: '',
+                whatsapp: '',
+                maps: '',
+                instagram: '',
+                facebook: '',
+                tokopedia: '',
+                shopee: '',
+                foto_toko: '',
+                id_penjual: '',
+                rating: '',
+                status: '',
+                verifikasi: '',
             }),
         },
         mounted() {
@@ -229,7 +247,8 @@ Tambah Toko
         },
         methods: {
             storeData() {
-                this.form.post("{{ route('kategori.store') }}")
+                this.form.id_penjual = this.id_user
+                this.form.post("{{ route('toko.store') }}")
 
                     .then(response => {
                         $('#defaultModal').modal('hide');
@@ -239,7 +258,7 @@ Tambah Toko
                             'berhasil'
                         ).then((value)=> {
                             this.refreshData()
-                            window.location = "{{route('kategori.index')}}"
+                            window.location = "{{route('toko.index')}}"
                         })
                         
                     })
@@ -261,7 +280,7 @@ Tambah Toko
                         
             },
             refreshData() {
-                axios.get("{{ route('kategori.all') }}")
+                axios.get("{{ route('toko.all') }}")
                     .then(response => {
                         $('#default_table').DataTable().destroy()
                         this.mainData = response.data

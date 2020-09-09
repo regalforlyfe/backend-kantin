@@ -104,14 +104,14 @@ class TokoController extends Controller
             'nama_toko' => 'required',
             'deskripsi' => 'required',
             'alamat' => 'required',
-            'hari_buka' => 'required',
+            // 'hari_buka' => 'required',
             'waktu_buka' => 'required',
             'waktu_tutup' => 'required',
-            'metode_pembayaran' => 'required',
+            // 'metode_pembayaran' => 'required',
+            // 'metode_pengiriman' => 'required',
             'whatsapp' => 'required',
             'maps' => 'required',
-            'foto_toko' => 'required',
-            'id_penjual' => 'required',
+            // 'foto_toko' => 'required',
         ]);
 
         return $toko->update($request->all());

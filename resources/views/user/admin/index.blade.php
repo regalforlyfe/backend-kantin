@@ -132,7 +132,6 @@ Admin
     function imageTrigger() {
         app.changeImage()
     }
-
     var app = new Vue({
         el: '#app',
         data: {
@@ -195,7 +194,6 @@ Admin
                         e.response.status != 422 ? console.log(e) : '';
                     })
             },
-
             deleteData(id) {
                 Swal.fire({
                     title: 'Are you sure?',
@@ -223,7 +221,6 @@ Admin
                     }
                 })
             },
-
             refreshData() {
                 axios.get("{{ route('user.admin') }}")
                     .then(response => {
@@ -239,6 +236,5 @@ Admin
             }
         },
     })
-
 </script>
 @endpush

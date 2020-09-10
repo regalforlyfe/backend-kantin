@@ -198,7 +198,7 @@ Tambah Toko
                         <br>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{route('kategori.index')}}"><button type="button" class="btn btn-light" data-dismiss="modal">Batal</button></a>
+                        <a href="{{route('toko.index')}}"><button type="button" class="btn btn-light" data-dismiss="modal">Batal</button></a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
@@ -213,11 +213,12 @@ Tambah Toko
 @push('script')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
+    var idUser = @json($data);
+
     var app = new Vue({
         el: '#app',
         data: {
             mainData: [],
-            id_user: @json($data),
             form: new Form({
                 id: '',
                 nama_toko: '',
@@ -235,10 +236,10 @@ Tambah Toko
                 tokopedia: '',
                 shopee: '',
                 foto_toko: '',
-                id_penjual: '',
-                rating: '',
+                id_penjual: idUser,
+                rating: '0.0',
                 status: '',
-                verifikasi: '',
+                verifikasi: 'belum terverifikasi',
             }),
         },
         mounted() {
@@ -247,7 +248,6 @@ Tambah Toko
         },
         methods: {
             storeData() {
-                this.form.id_penjual = this.id_user
                 this.form.post("{{ route('toko.store') }}")
 
                     .then(response => {

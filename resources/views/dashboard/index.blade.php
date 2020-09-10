@@ -42,7 +42,7 @@ Dashboard
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-cyan text-center">
-                                                <h1 class="font-light text-white">964</h1>
+                                                <h1 class="font-light text-white">@{{ banyakToko }}</h1>
                                                 <h6 class="text-white">Toko</h6>
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@ Dashboard
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-danger text-center">
-                                                <h1 class="font-light text-white">964</h1>
+                                                <h1 class="font-light text-white">@{{ banyakProduk }}</h1>
                                                 <h6 class="text-white">Produk</h6>
                                             </div>
                                         </div>
@@ -93,3 +93,16 @@ Dashboard
                         </div>
                     </div>
 @endsection
+
+@push('script')
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            banyakToko: @json($toko),
+            banyakProduk: @json($produk),
+        },
+    })
+
+</script>
+@endpush

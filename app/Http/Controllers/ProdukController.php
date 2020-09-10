@@ -6,6 +6,7 @@ use App\Kategori;
 use App\Produk;
 use App\Toko;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -33,9 +34,10 @@ class ProdukController extends Controller
      */
     public function create()
     {
+        $iduser = Auth::id();
         $kategori = Kategori::all();
         $toko = Toko::all();
-        return view('masterdata.produk.create', compact('kategori','toko'));
+        return view('masterdata.produk.create', compact('kategori','toko', 'iduser'));
     }
 
     /**

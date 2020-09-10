@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         [
             'nama' => 'pertiwi',
             'username'=>'ibupertiwi',
-            'email' => 'pertiwi@admin.com',
+            'email' => 'pertiwi@penjual.com',
             'email_verified_at'=>'2020-08-01 01:00:00',
             'tipe_users' => 'penjual',
             'password' => bcrypt('pertiwipass'),

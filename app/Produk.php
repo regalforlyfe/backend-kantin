@@ -16,6 +16,7 @@ class Produk extends Model
         'id_kategori',
         'id_toko',
         'foto_produk',
+        'id_penjual',
     ];
 
     use SoftDeletes;

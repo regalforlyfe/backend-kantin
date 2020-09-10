@@ -121,11 +121,6 @@ Tambah Toko
                                     <label class="form-check-label" for="antar">Antar</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="pengirimanOjek"
-                                        value="ojek">
-                                    <label class="form-check-label" for="ojek">Ojek Online</label>
-                                </div>
-                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="pengirimanPaket"
                                         value="paket">
                                     <label class="form-check-label" for="paket">Paket</label>
@@ -224,11 +219,8 @@ Tambah Toko
                 nama_toko: '',
                 deskripsi: '',
                 alamat: '',
-                hari_buka: '',
                 waktu_buka: '',
                 waktu_tutup: '',
-                metode_pembayaran: '',
-                metode_pengiriman: '',
                 whatsapp: '',
                 maps: '',
                 instagram: '',
@@ -238,7 +230,7 @@ Tambah Toko
                 foto_toko: '',
                 id_penjual: idUser,
                 rating: '0.0',
-                status: '',
+                status: 'tidak aktif',
                 verifikasi: 'belum terverifikasi',
             }),
         },
@@ -249,7 +241,6 @@ Tambah Toko
         methods: {
             storeData() {
                 this.form.post("{{ route('toko.store') }}")
-
                     .then(response => {
                         $('#defaultModal').modal('hide');
                         Swal.fire(

@@ -125,6 +125,8 @@ Tambah Produk
 @push('script')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
+    var idUser = @json($iduser);
+
     var app = new Vue({
         el: '#app',
         data: {
@@ -137,6 +139,7 @@ Tambah Produk
                 foto_produk: '',
                 id_toko: '',
                 id_kategori: '',
+                id_penjual: '2',
             }),
             id_toko: @json($toko),
             id_kategori: @json($kategori),

@@ -22,6 +22,10 @@ class Produk extends Migration
             $table->unsignedBigInteger('id_toko')->nullable();
             $table->mediumtext('foto_produk')->nullable();
             $table->unsignedBigInteger('id_penjual')->nullable();
+            $table->float('rating')->nullable();
+            $table->enum('status', ['Tidak Aktif', 'Aktif']);
+            $table->enum('stok', ['Stok Tersedia', 'Stok Habis']);
+
             $table->softDeletes();
             $table->timestamps();
             

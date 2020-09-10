@@ -30,10 +30,10 @@ Produk
                                                 <td>@{{ item.nama_toko != 'null' ? item.nama_toko : ''  }}</td>
                                                 <td>@{{ item.rating != 'null' ? item.rating : ''  }}</td>
                                                 <td>
-                                                    <button class="btn btn-success btn-sm">AKTIF</button>
+                                                    <button class="btn btn-success btn-sm">@{{ item.status != 'null' ? item.status : ''  }}</button>
                                                 </td>
                                                 <td>
-                                                <button class="btn btn-success btn-sm">STOK TERSEDIA</button>
+                                                <button class="btn btn-success btn-sm">@{{ item.stok != 'null' ? item.stok : ''  }}</button>
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
@@ -73,6 +73,9 @@ Produk
                 nama_toko: '',
                 deskripsi: '',
                 foto_produk: '',
+                rating: '',
+                status: '',
+                stok: '',
             }),
 
             produk: @json($data),

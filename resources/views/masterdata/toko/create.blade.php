@@ -198,7 +198,7 @@ Tambah Toko
                         <br>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{route('kategori.index')}}"><button type="button" class="btn btn-light" data-dismiss="modal">Batal</button></a>
+                        <a href="{{route('toko.index')}}"><button type="button" class="btn btn-light" data-dismiss="modal">Batal</button></a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
@@ -213,14 +213,33 @@ Tambah Toko
 @push('script')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
+    var idUser = @json($data);
+
     var app = new Vue({
         el: '#app',
         data: {
             mainData: [],
             form: new Form({
                 id: '',
-                nama_kategori: '',
+                nama_toko: '',
                 deskripsi: '',
+                alamat: '',
+                hari_buka: '',
+                waktu_buka: '',
+                waktu_tutup: '',
+                metode_pembayaran: '',
+                metode_pengiriman: '',
+                whatsapp: '',
+                maps: '',
+                instagram: '',
+                facebook: '',
+                tokopedia: '',
+                shopee: '',
+                foto_toko: '',
+                id_penjual: idUser,
+                rating: '0.0',
+                status: '',
+                verifikasi: 'belum terverifikasi',
             }),
         },
         mounted() {
@@ -229,7 +248,7 @@ Tambah Toko
         },
         methods: {
             storeData() {
-                this.form.post("{{ route('kategori.store') }}")
+                this.form.post("{{ route('toko.store') }}")
 
                     .then(response => {
                         $('#defaultModal').modal('hide');
@@ -239,7 +258,7 @@ Tambah Toko
                             'berhasil'
                         ).then((value)=> {
                             this.refreshData()
-                            window.location = "{{route('kategori.index')}}"
+                            window.location = "{{route('toko.index')}}"
                         })
                         
                     })
@@ -261,7 +280,7 @@ Tambah Toko
                         
             },
             refreshData() {
-                axios.get("{{ route('kategori.all') }}")
+                axios.get("{{ route('toko.all') }}")
                     .then(response => {
                         $('#default_table').DataTable().destroy()
                         this.mainData = response.data

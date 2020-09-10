@@ -35,10 +35,13 @@ Toko
                                                 </td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-warning btn-sm far fa-edit"></button>
+                                                        <a v-bind:href="getUrl(item.id)" @click="editModal(item.id)"
+                                                            class="text-success" data-toggle="tooltip" data-placement="top"
+                                                                data-original-title="Edit"><i class="btn btn-warning btn-sm far fa-edit"></i></a>
                                                         <button class="btn btn-info btn-sm fas fa-image"></button>
-                                                        <button class="btn btn-danger btn-sm  far fa-trash-alt"></button>
-                                                        </form>
+                                                        <a href="javascript:void(0);" @click="deleteData(item.id)" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i
+                                                                class="btn btn-danger btn-sm far fa-trash-alt"></i></a>
                                                     </div>
                                                 </td>
                                         </tbody>
@@ -60,6 +63,7 @@ Toko
         el: '#app',
         data: {
             mainData: @json($data),
+            toko: @json($data),
             form: new Form({
                 id: '',
                 nama_toko: '',
@@ -82,8 +86,6 @@ Toko
                 status: '',
                 verifikasi: '',
             }),
-
-            toko: @json($data),
         },
         mounted() {
             $('#default_table').DataTable()

@@ -122,7 +122,7 @@ Tambah Toko
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="pengirimanPaket"
-                                        value="paket">
+                                        value="paket" :checked="true">
                                     <label class="form-check-label" for="paket">Paket</label>
                                 </div>
                                 <div class="form-check form-check-inline">

@@ -26,9 +26,9 @@ Order
                                 <td>@{{ index+1 }}</td>
                                 <td>@{{ item.kode_order != 'null' ? item.kode_order : ''  }}</td>
                                 <td>@{{ item.created_at != 'null' ? item.created_at : ''  }}</td>
-                                <td>@{{ item.pembeli != 'null' ? item.pembeli : ''  }}</td>
-                                <td>@{{ item.toko != 'null' ? item.toko : ''  }}</td>
-                                <td>@{{ item.produk != 'null' ? item.produk : ''  }}</td>
+                                <td>@{{ item.pembeli.nama != 'null' ? item.pembeli.nama  : ''  }}</td>
+                                <td>@{{ item.toko.nama_toko != 'null' ? item.toko.nama_toko : ''  }}</td>
+                                <td>@{{ item.produk.nama_produk != 'null' ? item.produk.nama_produk: ''  }}</td>
                                 <td>
                                     <button class="btn btn-success btn-sm">ORDER SUSKES</button>
                                 </td>

@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
             [
                 'kode_order' => '5ASD0R',
                 'jumlah' => '1',
-                'id_pembeli' => '1',
+                'id_pembeli' => '4',
                 'id_toko' => '1',
                 'id_produk' => '1',
                 'created_at' => '2020-08-01 01:00:00',
@@ -24,7 +24,7 @@ class OrderSeeder extends Seeder
             [
                 'kode_order' => '92SADQ',
                 'jumlah' => '1',
-                'id_pembeli' => '1',
+                'id_pembeli' => '4',
                 'id_toko' => '2',
                 'id_produk' => '2',
                 'created_at' => '2020-08-01 01:00:00',

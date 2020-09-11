@@ -18,14 +18,15 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data = Order::all();
+        $data = Order::with('toko','produk','pembeli')->get();
         return view('order.index', compact('data'));
+        return response()->json($data);
     }
     
     public function all()
     {
-        $data = Order::addSelect(['pembeli' => User::select('nama')->whereColumn('id', 'order.id_pembeli')])->where('id_penjual', Auth::id())->get();
-        return $data;
+        $data = Order::with('toko','produk','pembeli')->where('id_penjual', Auth::id())->get();
+	    return $data;
     }
 
     

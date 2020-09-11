@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual']],function(){ 
+Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual,pembeli']],function(){ 
 
     Route::group(['prefix'=>'user'], function(){
         Route::get('/viewAdmin', 'UserController@index')->name('user.viewAdmin');
@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual']],fun
     });
     
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/produk.all', 'ProdukController@all')->name('produk.all');
     Route::resource('/produk', 'ProdukController');
     Route::get('/toko.all', 'TokoController@all')->name('toko.all');
     Route::resource('/toko', 'TokoController');

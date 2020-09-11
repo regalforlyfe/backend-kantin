@@ -46,8 +46,22 @@
                                 <select type="text" id="tipe_user" class="form-control @error('tipe_user') is-invalid @enderror"
                                 name="tipe_user" value="{{ old('tipe_user') }}" required autocomplete="tipe_user" autofocus>
                                     <option value="penjual">penjual</option>
-                                    <option value="admin">admin</option>
                                 </select>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Lahir') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="tanggal_lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required autocomplete="tanggal_lahir" autofocus>
+                                
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

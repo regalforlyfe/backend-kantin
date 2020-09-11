@@ -58,8 +58,6 @@ Kategori
                 nama_kategori: '',
                 deskripsi: '',
             }),
-
-            kategori: @json($data),
         },
         mounted() {
             $('#default_table').DataTable()
@@ -77,14 +75,14 @@ Kategori
             deleteData(id) {
 
                 swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to restore this!",
+                    title: 'Apakah anda yakin ingin menghapus?',
+                    text: "Anda tidak akan bisa mengembalikannya lagi!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'No, cancel!',
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Tidak, Batalkan!',
                     reverseButtons: true
                 }).then((result) => {
 
@@ -93,9 +91,9 @@ Kategori
                         this.form.delete(url)
                             .then(response => {
                                 Swal.fire(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
-                                    'success'
+                                    'Terhapus!',
+                                    'Data Kategori telah terhapus.',
+                                    'sukses'
                                 )
                                 this.refreshData()
                             })

@@ -6,6 +6,7 @@ use App\Kategori;
 use App\Produk;
 use App\Toko;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -22,7 +23,8 @@ class ProdukController extends Controller
     
     public function all()
     {
-        //return Kategori::addSelect(['users' => User::select('nama')->whereColumn('id', 'lapangan.id_users')])->get();
+        $data = Produk::addSelect(['nama_toko' => Toko::select('nama_toko')->whereColumn('id', 'produk.id_toko')])->get();
+        return $data;
     }
 
     /**
@@ -32,9 +34,10 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        $data = Kategori::all();
+        $iduser = Auth::id();
+        $kategori = Kategori::all();
         $toko = Toko::all();
-        return view('masterdata.produk.create', compact('data','toko'));
+        return view('masterdata.produk.create', compact('kategori','toko', 'iduser'));
     }
 
     /**
@@ -48,12 +51,12 @@ class ProdukController extends Controller
         //echo '<script>console.log('.$request->gambar.')</script>';
 
         $request->validate([
-            'nama_kategori' => 'required',
+            'nama_produk' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
             'id_kategori' => 'required',
             'id_toko' => 'required',
-            'foto_produk' => 'required',
+            // 'foto_produk' => 'required',
         ]);
         
         Produk::create($request->all());
@@ -79,10 +82,10 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        $data = Kategori::all();
+        $kategori = Kategori::all();
         $toko = Toko::all();
         $produk = Produk::find($id);
-        return view('masterdata.produk.edit', compact('data','toko','produk'));
+        return view('masterdata.produk.edit', compact('kategori','toko','produk'));
     }
 
     /**
@@ -95,7 +98,7 @@ class ProdukController extends Controller
     public function update(Request $request, Produk $produk)
     {
         $request->validate([
-            'nama_kategori' => 'required',
+            'nama_produk' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
             'id_kategori' => 'required',

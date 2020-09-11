@@ -8,19 +8,18 @@
                         <li class="sidebar-item">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-2">
+                                    <div class="col-md-2">
                                         <img src="../assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
                                                 width="40">
                                     </div>
-                                    <div class="col-10">
-                                        <span class="ml-2 d-none d-lg-inline-block">
+                                    <div class="col-md-8" style="padding-left:20px;">
                                         <div class="row">
-                                            <div class="col-10">
+                                            <div class="col-md-10">
                                             <span class="text-dark">{{ Auth::user()->nama }}</span>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12">
+                                            <div class="col-md-12">
                                             <p><i class="fas fa-id-card" style="padding-right:5px;"></i>{{ Auth::user()->tipe_user }}</p>
                                             </div>
                                         </div>

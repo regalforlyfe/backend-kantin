@@ -64,7 +64,7 @@ class UserController extends Controller
             'nama' => 'required',
             'username' => 'required|min:5|unique:users,username,',
             'tipe_user' => 'required',
-            'profil' => 'required',
+            // 'profil' => 'required',
             'email' => 'required|email|unique:users,email,',
             'password' => 'required|nullable|min:5',
         ]);
@@ -103,13 +103,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,User $user)
     {
         $request->validate([
             'nama' => 'required',
             'username' => 'required|min:5|unique:users,username,',
             'tipe_user' => 'required',
-            'profil' => 'required',
+            // 'profil' => 'required',
             'email' => 'required|email|unique:users,email,',
             'password' => 'required|nullable|min:5',
         ]);
@@ -125,7 +125,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         return $user->delete();
     }

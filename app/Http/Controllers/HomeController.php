@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Toko;
+use App\Produk;
+use App\Kategori;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -13,6 +19,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $toko = Toko::all()->where('id_penjual', Auth::id())->count();
+        $produk = Produk::all()->where('id_penjual', Auth::id())->count();
+        $penjual = User::all()->where('tipe_user','penjual')->count();
+        $pembeli = User::all()->where('tipe_user','pembeli')->count();
+        $kategori = Kategori::all()->count();
+        return view('dashboard.index', compact('toko', 'produk','kategori','penjual','pembeli'));
     }
 }

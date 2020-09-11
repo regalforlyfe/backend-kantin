@@ -68,7 +68,7 @@ Admin
                             <has-error :form="form" field="username"></has-error>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <label class="col-lg-2" for="Profil">Foto Profil</label>
                         <div class="form-group col-md-8">
                             <div class="input-group-prepend">
@@ -79,7 +79,7 @@ Admin
                                     <button type="button" class="btn btn-outline-secondary">Cari</button></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-row">
                         <label class="col-lg-2" for="member">Tipe User</label>
                         <div class="form-group col-md-8">
@@ -90,6 +90,15 @@ Admin
                             <has-error :form="form" field="tipe_user"></has-error>
                         </div>
                     </div>
+                    <div class="form-row">
+                            <label class="col-lg-2" for="tanggal_lahir">Tanggal Lahir</label>
+                            <div class="form-group col-md-8">
+                                <input v-model="form.tanggal_lahir" id="tanggal_lahir" type="date"
+                                    placeholder="Input tanggal lahir" class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('tanggal_lahir') }">
+                                <has-error :form="form" field="tanggal_lahir"></has-error>
+                            </div>
+                        </div>
                     <div class="form-row">
                         <label class="col-lg-2" for="Email">Email</label>
                         <div class="form-group col-md-8">
@@ -129,9 +138,6 @@ Admin
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-    function imageTrigger() {
-        app.changeImage()
-    }
     var app = new Vue({
         el: '#app',
         data: {
@@ -142,11 +148,10 @@ Admin
                 nama: '',
                 username: '',
                 tipe_user: '',
-                profil: '',
+                tanggal_lahir: '',
                 email: '',
                 password: '',
             }),
-            imgUrl: "{{ asset('source').'/' }}",
         },
         mounted() {
             $('#table').DataTable()
@@ -196,22 +201,23 @@ Admin
             },
             deleteData(id) {
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Apakah anda yakin ingin menghapus?',
+                    text: "Anda tidak akan bisa mengembalikannya lagi!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Tidak, Batalkan!',
                 }).then((result) => {
                     if (result.value) {
                         url = "{{ route('user.destroy', ':id') }}".replace(':id', id)
                         this.form.delete(url)
                             .then(response => {
                                 Swal.fire(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
-                                    'success'
+                                    'Terhapus!',
+                                    'Data Kategori telah terhapus.',
+                                    'sukses'
                                 )
                                 this.refreshData()
                             })

@@ -33,7 +33,7 @@
                                 aria-expanded="false"><i class="fas fa-home"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/order"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('order.index')}}"
                                 aria-expanded="false"><i class="fas fa-shopping-cart"></i><span
                                     class="hide-menu">Order</span></a></li>
 

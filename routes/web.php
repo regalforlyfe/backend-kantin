@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth','verified','CheckRole:admin,penjual,pembel
     Route::resource('/toko', 'TokoController');
     Route::get('/kategori.all', 'KategoriController@all')->name('kategori.all');
     Route::resource('/kategori', 'KategoriController');
+    Route::get('/order.all', 'OrderController@all')->name('order.all');
+    Route::resource('/order', 'OrderController');
 });
 
 
@@ -46,8 +48,4 @@ Route::get('/byviewers', function () {
 
 Route::get('/byorders', function () {
     return view('report.byorders.index');
-});
-
-Route::get('/order', function () {
-    return view('order.index');
 });

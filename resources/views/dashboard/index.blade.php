@@ -36,6 +36,15 @@ Dashboard
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Column -->
+                                    <div class="col-md-6 col-lg-3 col-xlg-3">
+                                        <div class="card card-hover">
+                                            <div class="p-2 bg-danger text-center">
+                                                <h1 class="font-light text-white">@{{ banyakProdukSemua }}</h1>
+                                                <h6 class="text-white">Produk</h6>
+                                            </div>
+                                        </div>
+                                    </div>
                                     @endif
                                     @if(Auth::user()->tipe_user=='penjual')
                                     <!-- Column -->
@@ -47,8 +56,7 @@ Dashboard
                                             </div>
                                         </div>
                                     </div>
-                                    @endif
-                                    <!-- Column -->
+
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-hover">
                                             <div class="p-2 bg-danger text-center">
@@ -57,6 +65,8 @@ Dashboard
                                             </div>
                                         </div>
                                     </div>
+
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -70,6 +80,7 @@ Dashboard
         data: {
             banyakToko: @json($toko),
             banyakProduk: @json($produk),
+            banyakProdukSemua: @json($produkSemua),
             banyakKategori: @json($kategori),
             banyakPenjual: @json($penjual),
             banyakPembeli: @json($pembeli),

@@ -13,11 +13,23 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         $data=[
-
+        [
             'nama_kategori' => 'makanan',
-            'deskripsi' => 'Makanan adalah zat yang dimakan oleh makhluk hidup untuk mendapatkan nutrisi yang kemudian diolah menjadi energi',
-
+            'deskripsi' => 'Makanan adalah',
+        ],
+        [
+            'nama_kategori' => 'minuman',
+            'deskripsi' => 'Minuman adalah ',
+        ],
+        [
+            'nama_kategori' => 'pakaian',
+            'deskripsi' => 'pakaian adalah ',
+        ],
+        [
+            'nama_kategori' => 'lainnya',
+            'deskripsi' => 'lainnya adalah ',
+        ],
         ];
-          Kategori::insert($data);
+        Kategori::insert($data);
     }
 }

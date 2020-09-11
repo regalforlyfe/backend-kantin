@@ -13,6 +13,7 @@ class ProdukSeeder extends Seeder
     public function run()
     {
         $data=[
+        [
             'nama_produk' => 'gado-gado',
             'deskripsi' => 'Gado-gado adalah salah satu makanan khas yang berasal dari Indonesia yang berupa sayur-sayuran yang direbus dan dicampur jadi satu, dengan bumbu kacang',
             'harga' => '15000',
@@ -23,8 +24,20 @@ class ProdukSeeder extends Seeder
             'rating' => '5',
             'status' => 'Aktif',
             'stok' => 'Stok Tersedia'
-
+        ],
+        [
+            'nama_produk' => 'Ketoprak',
+            'deskripsi' => 'Ketoprak Lezat',
+            'harga' => '12000',
+            'id_kategori' => 1,
+            'id_toko' => '2',
+            'foto_produk' => 'null',
+            'id_penjual' => '3',
+            'rating' => '5',
+            'status' => 'Aktif',
+            'stok' => 'Stok Tersedia'
+        ],
         ];
-          Produk::insert($data);
+        Produk::insert($data);
     }
 }

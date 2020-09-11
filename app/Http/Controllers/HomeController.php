@@ -21,9 +21,10 @@ class HomeController extends Controller
     {
         $toko = Toko::all()->where('id_penjual', Auth::id())->count();
         $produk = Produk::all()->where('id_penjual', Auth::id())->count();
+        $produkSemua = Produk::all()->count();
         $penjual = User::all()->where('tipe_user','penjual')->count();
         $pembeli = User::all()->where('tipe_user','pembeli')->count();
         $kategori = Kategori::all()->count();
-        return view('dashboard.index', compact('toko', 'produk','kategori','penjual','pembeli'));
+        return view('dashboard.index', compact('toko', 'produk','produkSemua','kategori','penjual','pembeli'));
     }
 }

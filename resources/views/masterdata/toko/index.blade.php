@@ -78,7 +78,7 @@ Toko
                 maps: '',
                 instagram: '',
                 facebook: '',
-                tokopedia: '',
+                tokopedia: '', 
                 shopee: '',
                 foto_toko: '',
                 id_penjual: '',

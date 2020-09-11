@@ -22,7 +22,11 @@ class TokoController extends Controller
     
     public function all()
     {
-        $data = Toko::addSelect(['seller' => User::select('nama')->whereColumn('id', 'toko.id_penjual')])->where('id_penjual', Auth::id())->get();
+        if (Auth::user()->tipe_user == 'admin') {
+            $data = Toko::addSelect(['seller' => User::select('nama')->whereColumn('id', 'toko.id_penjual')])->get(); //nambah kolom seller
+        } else {
+            $data = Toko::addSelect(['seller' => User::select('nama')->whereColumn('id', 'toko.id_penjual')])->where('id_penjual', Auth::id())->get();
+        }
         return $data;
     }
 

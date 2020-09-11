@@ -94,7 +94,6 @@ Produk
                 this.form.clear();
             },
             deleteData(id) {
-
                 swal.fire({
                     title: 'Apakah kamu yakin?',
                     text: "Produk tidak dapat kembali",
@@ -106,7 +105,6 @@ Produk
                     cancelButtonText: 'Tidak',
                     reverseButtons: true
                 }).then((result) => {
-
                     if (result.value) {
                         url = "{{ route('produk.destroy', ':id') }}".replace(':id', id)
                         this.form.delete(url)
